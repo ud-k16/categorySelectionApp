@@ -14,8 +14,6 @@ const useCategories = () => {
 
   //function that changes selected category in state
   const changeCategory = id => {
-    console.log('change Cantegory to id ', id);
-
     setState(prev => ({
       ...prev,
       selectedCategory: id,
@@ -41,6 +39,11 @@ const useCategories = () => {
 
   //worker list updated based on search text
   const sortWorkerListBasedOnSearchText = searchText => {
+    //clearing selected category if any
+    setState(prev => ({
+      ...prev,
+      selectedCategory: '',
+    }));
     //filtering list that holds search text in three props
     const updatedWorkerList = state.workerListReadOnly.filter(value => {
       const combinedText = value.name + value.role + value.country;
