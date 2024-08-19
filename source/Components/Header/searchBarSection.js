@@ -7,26 +7,25 @@ import {
   View,
 } from 'react-native';
 import {Theme} from '../../Theme';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SearchBarSection = ({searchWorker}) => {
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.textInputStyle}
-        placeholder="Search"
-        placeholderTextColor={Theme.colors.grey}
-        onChangeText={text => searchWorker(text)}
-      />
-      <Pressable style={styles.filterIcon}>
-        <Text
-          style={{
-            color: Theme.colors.grey,
-            textAlign: 'center',
-            paddingTop: 2,
-          }}>
-          filter icon
-        </Text>
-      </Pressable>
+      <View style={styles.textInputStyle}>
+        <MaterialCommunityIcons
+          name="magnify"
+          size={25}
+          color={Theme.colors.grey}
+        />
+        <TextInput
+          placeholder="Search"
+          placeholderTextColor={Theme.colors.grey}
+          onChangeText={text => searchWorker(text)}
+        />
+      </View>
+
+      <Pressable style={styles.filterIcon}></Pressable>
     </View>
   );
 };
@@ -43,6 +42,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     fontSize: 16,
     width: '82%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 4,
   },
   filterIcon: {
     backgroundColor: Theme.colors.secondary,
