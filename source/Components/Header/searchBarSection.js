@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {Theme} from '../../Theme';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const SearchBarSection = ({searchWorker}) => {
   return (
@@ -25,7 +26,9 @@ const SearchBarSection = ({searchWorker}) => {
         />
       </View>
 
-      <Pressable style={styles.filterIcon}></Pressable>
+      <Pressable style={styles.filterIcon}>
+        <Ionicons name="options-outline" size={35} color="black" />
+      </Pressable>
     </View>
   );
 };
@@ -50,6 +53,8 @@ const styles = StyleSheet.create({
     backgroundColor: Theme.colors.secondary,
     borderRadius: 8,
     width: '14%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
